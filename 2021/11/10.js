@@ -158,15 +158,29 @@ class UserType3 {
 let u4 = new UserType3();
 let u5 = new UserType3();
 
-u4.run();
-u4.watch();
+// u4.run();
+// u4.watch();
 
 // mixin
 UserType3.prototype.name = 'hello'
 
-console.log(u4.name);
-console.log(u5.name);
+// console.log(u4.name);
+// console.log(u5.name);
 
-class Admin extends User {
+class Admin extends UserType3 {
     role = 'admin';
+    fly() {
+        console.log(`i can fly`);
+    }
 }
+
+let admin1 = new Admin();
+
+console.log(admin1.name);
+console.log(admin1.role);
+
+admin1.run();
+admin1.fly();
+
+// u5.fly(); not allowed
+
