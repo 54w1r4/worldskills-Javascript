@@ -183,4 +183,12 @@ admin1.run();
 admin1.fly();
 
 // u5.fly(); not allowed
+class UserType4 {
+    constructor() {
+        this.email = 'edward@quahk.com';
+        this.password = '123456'
+    }
+}
+
+new UserType4();
 
