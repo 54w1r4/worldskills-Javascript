@@ -53,7 +53,7 @@ func7.func8();
 
 class User{}
 
-const u1 = new User();
+// const u1 = new User();
 
 // console.log(u1);
 
@@ -68,14 +68,105 @@ const u1 = new User();
 let a = 10;
 let b = 20;
 
-function f12(x) {
-    
+function af(a, b, x) {
     return a * x + b
 }
 
-console.log(f12(10));
+const af2 = af.bind(null, 10, 20)
 
-a = 20;
-b = 20;
+// console.log(af2(20));
 
-console.log(f12(10));
+// console.log(af2 === af);
+
+const af3 = af.bind(null, 20, 20);
+// console.log(af3(20));
+// console.log(f12(10));
+
+// a = 20;
+// b = 20;
+
+// // console.log(f12(10));
+
+// function f10_20() {
+//     let a = 10;
+//     let b = 20;
+// }
+
+function add(num) {
+    return function (x) {
+        return x + num;
+    }
+}
+
+const add10 = add(10);
+const add20 = add(20);
+
+// console.log(add10(2));
+// console.log(add20(23));
+
+function UserType1() {
+    this.name = 'edward';
+}
+
+class UserType2 {
+    name = 'edward'
+    constructor() {
+        let age = 65
+    } 
+}
+
+const u1 = new UserType1();
+let u2 = new UserType2();
+
+u2.speak = function() {
+    console.log('12345');
+}
+
+// u2.speak();
+
+let u3 = new UserType2();
+
+UserType2.prototype.run = function() {
+    console.log("i'm running")
+}
+
+// u3.run();
+// u2.run();
+
+// console.log(UserType2.prototype);
+
+// console.log(u1);
+// console.log(u2);
+
+const obj2 = {
+    name: 'edward'
+}
+
+
+// console.log(Object.getPrototypeOf(obj2));
+
+class UserType3 {
+    run() {
+        console.log('running');
+    }
+
+    watch() {
+        console.log(`watching`);
+    }
+}
+
+let u4 = new UserType3();
+let u5 = new UserType3();
+
+u4.run();
+u4.watch();
+
+// mixin
+UserType3.prototype.name = 'hello'
+
+console.log(u4.name);
+console.log(u5.name);
+
+class Admin extends User {
+    role = 'admin';
+}
